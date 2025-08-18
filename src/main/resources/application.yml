@@ -7,7 +7,7 @@ spring:
   application:
     name: kiri-engine-integration
   
-  # Configuración para archivos multipart
+# Configuración para archivos multipart
   servlet:
     multipart:
       enabled: true
@@ -38,4 +38,19 @@ logging:
     com.disrupton: DEBUG
     org.springframework.web: INFO
   pattern:
-    console: "%d{yyyy-MM-dd HH:mm:ss} - %msg%n" 
+    console: "%d{yyyy-MM-dd HH:mm:ss} - %msg%n"
+
+# Confuguración de Culqi
+culqi:
+  api:
+    key: sk_test_xxxxxxxxxxxxxxxxxxxxxxxxx
+    url: https://api.culqi.com/v2
+
+# Plan ID en Culqi (crea un plan en Culqi Dashboard para S/15 mensuales)
+  plan:
+    monthly_plan_id: plan_XXXXXXXX
+
+# URL pública para webhooks (configurar en Culqi Dashboard)
+app:
+  webhook:
+    base-url: https://localhost:8080/api/webhooks/culqi

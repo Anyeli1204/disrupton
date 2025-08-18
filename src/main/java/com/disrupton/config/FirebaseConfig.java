@@ -1,10 +1,13 @@
 package com.disrupton.config;
 
 import com.google.auth.oauth2.GoogleCredentials;
+import com.google.cloud.firestore.Firestore;
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.FirebaseOptions;
+import com.google.firebase.cloud.FirestoreClient;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 import javax.annotation.PostConstruct;
@@ -59,5 +62,11 @@ public class FirebaseConfig {
             log.error("💡 Asegúrate de que el archivo {} existe en src/main/resources/", serviceAccountFile);
             throw e;
         }
+    }
+
+    @Bean
+    public Firestore firestore() {
+        log.info("📦 Exponiendo Firestore como bean");
+        return FirestoreClient.getFirestore();
     }
 } 

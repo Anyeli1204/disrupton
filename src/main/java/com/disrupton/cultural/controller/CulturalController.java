@@ -75,17 +75,12 @@ public class CulturalController {
             @RequestParam(value = "story", required = false) String story,
             @RequestParam(value = "captureNotes", required = false) String captureNotes,
             @RequestParam(value = "fileFormat", defaultValue = "GLB") String fileFormat,
-<<<<<<< HEAD:src/main/java/com/disrupton/controller/CulturalController.java
-            @RequestParam("userId") Long userId,
+            @RequestParam("userId") String userId,
             @RequestParam(value = "latitude", required = false) Double latitude,
             @RequestParam(value = "longitude", required = false) Double longitude,
             @RequestParam(value = "address", required = false) String address,
             @RequestParam(value = "autoLocation", required = false, defaultValue = "false") Boolean autoLocation,
             HttpServletRequest httpRequest) {
-=======
-            @RequestParam("userId") String userId) {
->>>>>>> main:src/main/java/com/disrupton/cultural/controller/CulturalController.java
-        
         try {
             log.info("Recibida solicitud para subir objeto cultural: {}", name);
             

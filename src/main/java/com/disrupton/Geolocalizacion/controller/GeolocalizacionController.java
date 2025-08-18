@@ -1,7 +1,7 @@
-package com.disrupton.controller;
+package com.disrupton.Geolocalizacion.controller;
 
-import com.disrupton.dto.LocationDto;
-import com.disrupton.service.GeolocalizacionService;
+import com.disrupton.Geolocalizacion.dto.LocationDto;
+import com.disrupton.Geolocalizacion.service.GeolocalizacionService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;

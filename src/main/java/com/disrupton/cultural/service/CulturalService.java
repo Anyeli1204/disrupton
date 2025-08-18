@@ -1,9 +1,8 @@
 package com.disrupton.cultural.service;
 
-<<<<<<< HEAD:src/main/java/com/disrupton/service/CulturalService.java
-import com.disrupton.model.*;
-import com.disrupton.dto.LocationDto;
-=======
+import com.disrupton.Geolocalizacion.dto.LocationDto;
+import com.disrupton.Geolocalizacion.service.GeolocalizacionService;
+import com.disrupton.Geolocalizacion.service.IPGeolocationService;
 import com.disrupton.KiriEngine.model.ImageUploadRequest;
 import com.disrupton.KiriEngine.model.KiriEngineResponse;
 import com.disrupton.comment.model.Comment;
@@ -12,7 +11,6 @@ import com.disrupton.cultural.model.CulturalUploadRequest;
 import com.disrupton.cultural.dto.CulturalObjectDto;
 import com.disrupton.KiriEngine.service.KiriEngineService;
 import com.disrupton.reaction.model.Reaction;
->>>>>>> main:src/main/java/com/disrupton/cultural/service/CulturalService.java
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -29,10 +27,8 @@ import java.util.HashMap;
 public class CulturalService {
     
     private final KiriEngineService kiriEngineService;
-<<<<<<< HEAD:src/main/java/com/disrupton/service/CulturalService.java
     private final GeolocalizacionService geolocalizacionService;
     private final IPGeolocationService ipGeolocationService;
-=======
     private final FirebaseCulturalObjectService firebaseCulturalObjectService;
     
     /**
@@ -61,7 +57,6 @@ public class CulturalService {
             throw new RuntimeException("Error al guardar objeto cultural", e);
         }
     }
->>>>>>> main:src/main/java/com/disrupton/cultural/service/CulturalService.java
     
     /**
      * Subir objeto cultural completo con imágenes y contexto
@@ -249,9 +244,10 @@ public class CulturalService {
      * Procesa la información de ubicación del objeto cultural
      * GARANTIZA que siempre se asigne una ubicación al objeto
      */
+
     private void processLocationInfo(CulturalObject culturalObject, CulturalUploadRequest request, jakarta.servlet.http.HttpServletRequest httpRequest) {
         try {
-            LocationDto locationInfo = null;
+            LocationDto locationInfo;
             
             // Prioridad 1: Si se solicita geolocalización automática explícitamente
             if (Boolean.TRUE.equals(request.getAutoLocation())) {
